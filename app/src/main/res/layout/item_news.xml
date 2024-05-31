@@ -13,27 +13,29 @@
         android:orientation="vertical"
         android:padding="16dp">
 
+        <!-- News Image -->
         <ImageView
-            android:id="@+id/mountainImageView"
+            android:id="@+id/newsImageView"
             android:layout_width="match_parent"
             android:layout_height="180dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/ic_launcher_background" />
-
+            android:src="@drawable/news_1" />
+        <!-- News Title -->
         <TextView
-            android:id="@+id/mountainNameTextView"
+            android:id="@+id/newsTitleTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Mountain Name"
+            android:text="News Title"
             android:textAppearance="?attr/textAppearanceListItem" />
 
+        <!-- News Description -->
         <TextView
-            android:id="@+id/mountainHeightTextView"
+            android:id="@+id/newsDescriptionTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="Mountain Height"
+            android:text="News Description"
             android:textAppearance="?attr/textAppearanceCaption" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>

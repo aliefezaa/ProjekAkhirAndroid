@@ -9,7 +9,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.mounticket.MainActivity;
 import com.example.mounticket.R;
 import com.example.mounticket.models.MenuModel;
 
@@ -18,22 +17,15 @@ import java.util.List;
 public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MenuViewHolder> {
 
     private List<MenuModel> menuList;
-    private MainActivity mainActivity;
+    private OnMenuItemClickListener listener;
 
-    // Listener untuk menangani klik pada menu
     public interface OnMenuItemClickListener {
         void onMenuItemClicked(String menuItemName, String jsonUrl);
     }
 
-    // Konstruktor dengan listener sebagai parameter
-    public MenuAdapter(List<MenuModel> menuList, MainActivity mainActivity) {
+    public MenuAdapter(List<MenuModel> menuList, OnMenuItemClickListener listener) {
         this.menuList = menuList;
-        this.mainActivity = mainActivity;
-    }
-
-    // Metode untuk mengatur listener
-    public void setOnMenuItemClickListener(MainActivity listener) {
-        this.mainActivity = listener;
+        this.listener = listener;
     }
 
     @NonNull
@@ -46,17 +38,7 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MenuViewHolder
     @Override
     public void onBindViewHolder(@NonNull MenuViewHolder holder, int position) {
         MenuModel menu = menuList.get(position);
-        holder.menuIconImageView.setImageResource(menu.getIconResId());
-        holder.menuNameTextView.setText(menu.getName());
-
-        // Menambahkan OnClickListener ke setiap item menu
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Memanggil metode onMenuItemClicked dari MainActivity
-                mainActivity.onMenuItemClicked(menu.getName(), menu.getJsonUrl());
-            }
-        });
+        holder.bind(menu);
     }
 
     @Override
@@ -64,14 +46,30 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MenuViewHolder
         return menuList.size();
     }
 
-    public static class MenuViewHolder extends RecyclerView.ViewHolder {
-        ImageView menuIconImageView;
-        TextView menuNameTextView;
+    public class MenuViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+
+        private ImageView iconImageView;
+        private TextView nameTextView;
 
         public MenuViewHolder(@NonNull View itemView) {
             super(itemView);
-            menuIconImageView = itemView.findViewById(R.id.menuIconImageView);
-            menuNameTextView = itemView.findViewById(R.id.menuNameTextView);
+            iconImageView = itemView.findViewById(R.id.menuIconImageView);
+            nameTextView = itemView.findViewById(R.id.menuNameTextView);
+            itemView.setOnClickListener(this);
+        }
+
+        public void bind(MenuModel menu) {
+            iconImageView.setImageResource(menu.getIconResource());
+            nameTextView.setText(menu.getTitle());
+        }
+
+        @Override
+        public void onClick(View v) {
+            int position = getAdapterPosition();
+            if (position != RecyclerView.NO_POSITION) {
+                MenuModel menu = menuList.get(position);
+                listener.onMenuItemClicked(menu.getTitle(), menu.getJsonUrl());
+            }
         }
     }
 }

@@ -106,13 +106,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_MOUNTAINS, null);
         if (cursor.moveToFirst()) {
             do {
-                Mountain mountain = new Mountain();
-                mountain.setId(cursor.getInt(0));
-                mountain.setName(cursor.getString(1));
-                mountain.setAlamat(cursor.getString(2));
-                mountain.setHeight(cursor.getString(3));
-                mountain.setImage(cursor.getString(4));
-                mountain.setHarga(cursor.getString(5));
+                int id = cursor.getInt(0);
+                String name = cursor.getString(1);
+                String alamat = cursor.getString(2);
+                String height = cursor.getString(3);
+                String image = cursor.getString(4);
+                String harga = cursor.getString(5);
+
+                Mountain mountain = new Mountain(id, name, alamat, height, image, harga);
                 mountainList.add(mountain);
             } while (cursor.moveToNext());
         }

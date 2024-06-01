@@ -35,6 +35,9 @@
         <activity
             android:name=".activities.RegisterActivity"
             android:exported="false" />
+        <activity
+            android:name=".activities.BeliTiketMasukActivity"
+            android:exported="true"/>
     </application>
 
 </manifest>

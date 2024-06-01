@@ -29,11 +29,27 @@
             android:textAppearance="?attr/textAppearanceListItem" />
 
         <TextView
+            android:id="@+id/mountainAlamatTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Mountain Address"
+            android:textAppearance="?attr/textAppearanceCaption" />
+
+        <TextView
             android:id="@+id/mountainHeightTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:text="Mountain Height"
+            android:textAppearance="?attr/textAppearanceCaption" />
+
+        <TextView
+            android:id="@+id/mountainHargaTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Mountain Price"
             android:textAppearance="?attr/textAppearanceCaption" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>

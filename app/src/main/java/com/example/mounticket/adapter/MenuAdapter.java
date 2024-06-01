@@ -1,27 +1,23 @@
 package com.example.mounticket.adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mounticket.R;
 import com.example.mounticket.models.MenuModel;
-
 import java.util.List;
 
 public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MenuViewHolder> {
 
     private List<MenuModel> menuList;
     private OnMenuItemClickListener listener;
-
-    public interface OnMenuItemClickListener {
-        void onMenuItemClicked(String menuItemName, String jsonUrl);
-    }
+    private Context context;
 
     public MenuAdapter(List<MenuModel> menuList, OnMenuItemClickListener listener) {
         this.menuList = menuList;
@@ -31,7 +27,8 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MenuViewHolder
     @NonNull
     @Override
     public MenuViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.menu_item, parent, false);
+        context = parent.getContext();
+        View view = LayoutInflater.from(context).inflate(R.layout.menu_item, parent, false);
         return new MenuViewHolder(view);
     }
 
@@ -46,30 +43,31 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.MenuViewHolder
         return menuList.size();
     }
 
-    public class MenuViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public interface OnMenuItemClickListener {
+        void onMenuItemClicked(String menuItemName, String jsonUrl);
+    }
 
+    class MenuViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private ImageView iconImageView;
-        private TextView nameTextView;
+        private TextView titleTextView;
+        private MenuModel menu;
 
-        public MenuViewHolder(@NonNull View itemView) {
+        MenuViewHolder(@NonNull View itemView) {
             super(itemView);
-            iconImageView = itemView.findViewById(R.id.menuIconImageView);
-            nameTextView = itemView.findViewById(R.id.menuNameTextView);
+            iconImageView = itemView.findViewById(R.id.iconImageView);
+            titleTextView = itemView.findViewById(R.id.titleTextView);
             itemView.setOnClickListener(this);
         }
 
-        public void bind(MenuModel menu) {
+        void bind(MenuModel menu) {
+            this.menu = menu;
             iconImageView.setImageResource(menu.getIconResource());
-            nameTextView.setText(menu.getTitle());
+            titleTextView.setText(menu.getTitle());
         }
 
         @Override
         public void onClick(View v) {
-            int position = getAdapterPosition();
-            if (position != RecyclerView.NO_POSITION) {
-                MenuModel menu = menuList.get(position);
-                listener.onMenuItemClicked(menu.getTitle(), menu.getJsonUrl());
-            }
+            listener.onMenuItemClicked(menu.getTitle(), menu.getJsonUrl());
         }
     }
 }

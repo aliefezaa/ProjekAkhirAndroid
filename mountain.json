@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "name": "Gunung Merapi",
+    "alamat": "Jawa Tengah",
+    "height": "2,930 mdpl",
+    "image": "https://asset.kompas.com/crops/TeXoQCbZu5buO8Oguv2sXqSJslQ=/0x0:1800x1200/750x500/data/photo/2021/04/30/608bbe9b524d4.jpg",
+    "harga": "Rp 200.000"
+  },
+  {
+    "id": 2,
+    "name": "Gunung Rinjani",
+    "alamat": "Lombok",
+    "height": "3,726 mdpl",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Savanna_Mt._Rinjani_5.JPG",
+    "harga": "Rp 300.000"
+  },
+  {
+    "id": 3,
+    "name": "Gunung Semeru",
+    "alamat": "Jawa Timur",
+    "height": "3,676 mdpl",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Semeru.jpg/280px-Semeru.jpg",
+    "harga": "Rp 250.000"
+  },
+  {
+    "id": 4,
+    "name": "Gunung Kerinci",
+    "alamat": "Jambi",
+    "height": "3,805 mdpl",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Uprising-mount_kerinci.jpg",
+    "harga": "Rp 350.000"
+  },
+  {
+    "id": 5,
+    "name": "Gunung Gede",
+    "alamat": "Jawa Barat",
+    "height": "2,958 mdpl",
+    "image": "https://www.gedepangrango.org/images/1920/7691127/DJI_0413.JPG",
+    "harga": "Rp 220.000"
+  },
+  {
+    "id": 6,
+    "name": "Gunung Bromo",
+    "alamat": "Jawa Timur",
+    "height": "2,329 mdpl",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Mount_Bromo_at_sunrise%2C_showing_its_volcanoes_and_Mount_Semeru_%28background%29.jpg/640px-Mount_Bromo_at_sunrise%2C_showing_its_volcanoes_and_Mount_Semeru_%28background%29.jpg",
+    "harga": "Rp 180.000"
+  },
+  {
+    "id": 7,
+    "name": "Gunung Slamet",
+    "alamat": "Jawa Tengah",
+    "height": "3,428 mdpl",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Mount_Slamet.jpg",
+    "harga": "Rp 280.000"
+  },
+  {
+    "id": 8,
+    "name": "Gunung Lawu",
+    "alamat": "Jawa Tengah & Jawa Timur",
+    "height": "3,265 mdpl",
+    "image": "https://asset.kompas.com/crops/rHLpT-ZBsHwk45EDCEVaar2INOU=/69x85:693x501/750x500/data/photo/2019/06/21/3507694318.jpg",
+    "harga": "Rp 240.000"
+  },
+  {
+    "id": 9,
+    "name": "Gunung Agung",
+    "alamat": "Bali",
+    "height": "3,031 mdpl",
+    "image": "https://cdn1-production-images-kly.akamaized.net/xhr44AsR8pe8L58EG2kNvbSjn-g=/0x105:802x557/1200x675/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/2693037/original/056335100_1547179718-Gunung_Agung.JPG",
+    "harga": "Rp 260.000"
+  },
+  {
+    "id": 10,
+    "name": "Gunung Merbabu",
+    "alamat": "Jawa Tengah",
+    "height": "3,145 mdpl",
+    "image": "https://images.solopos.com/2022/07/ilustrasi-gunung-merbabu.jpg",
+    "harga": "Rp 230.000"
+  }
+]

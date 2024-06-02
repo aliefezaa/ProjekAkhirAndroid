@@ -7,13 +7,13 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.mounticket.models.Mountain;
-import com.example.mounticket.models.User;
+import com.example.mounticket.models.Transaction;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
-    private static final String DATABASE_NAME = "mountains.db";
+    private static final String DATABASE_NAME = "mountains_users_transactions.db";
     private static final int DATABASE_VERSION = 1;
 
     private static final String TABLE_USERS = "users";
@@ -29,6 +29,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_HEIGHT = "height";
     private static final String COLUMN_IMAGE = "image";
     private static final String COLUMN_HARGA = "harga";
+
+    private static final String TABLE_TRANSACTIONS = "transactions";
+    private static final String COLUMN_TRANSACTION_ID = "id";
+    private static final String COLUMN_DESCRIPTION = "description";
+    private static final String COLUMN_AMOUNT = "amount";
 
     private static final String TABLE_CREATE_USERS =
             "CREATE TABLE " + TABLE_USERS + " (" +
@@ -48,6 +53,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     COLUMN_HARGA + " TEXT" +
                     ")";
 
+    private static final String TABLE_CREATE_TRANSACTIONS =
+            "CREATE TABLE " + TABLE_TRANSACTIONS + " (" +
+                    COLUMN_TRANSACTION_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    COLUMN_DESCRIPTION + " TEXT, " +
+                    COLUMN_AMOUNT + " REAL" +
+                    ")";
+
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -56,12 +68,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(TABLE_CREATE_USERS);
         db.execSQL(TABLE_CREATE_MOUNTAINS);
+        db.execSQL(TABLE_CREATE_TRANSACTIONS);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_MOUNTAINS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_TRANSACTIONS);
         onCreate(db);
     }
 
@@ -128,5 +142,41 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cursor.close();
         db.close();
         return mountainList;
+    }
+
+    // Transaction table methods
+    public void deleteAllTransactions() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_TRANSACTIONS, null, null);
+        db.close();
+    }
+
+    public long insertTransaction(String description, double amount) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_DESCRIPTION, description);
+        values.put(COLUMN_AMOUNT, amount);
+        return db.insert(TABLE_TRANSACTIONS, null, values);
+    }
+
+    public List<Transaction> getAllTransactions() {
+        List<Transaction> transactionsList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_TRANSACTIONS, null);
+
+        if (cursor != null && cursor.moveToFirst()) {
+            do {
+                int id = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_TRANSACTION_ID));
+                String description = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_DESCRIPTION));
+                double amount = cursor.getDouble(cursor.getColumnIndexOrThrow(COLUMN_AMOUNT));
+                Transaction transaction = new Transaction(id, description, amount);
+                transactionsList.add(transaction);
+            } while (cursor.moveToNext());
+
+            cursor.close();
+        }
+
+        db.close();
+        return transactionsList;
     }
 }

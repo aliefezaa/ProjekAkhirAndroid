@@ -66,13 +66,8 @@ public class FormActivity extends AppCompatActivity {
 
             @Override
             public void onDeleteClick(int position) {
-                // Hapus item dari memberList
                 memberList.remove(position);
-
-                // Beritahu adapter bahwa item telah dihapus
                 memberAdapter.notifyItemRemoved(position);
-
-                // Optional: Beritahu pengguna bahwa item telah dihapus
                 Toast.makeText(FormActivity.this, "Item deleted", Toast.LENGTH_SHORT).show();
             }
         });

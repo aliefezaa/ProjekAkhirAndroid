@@ -14,8 +14,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mounticket.activities.BeliTiketMasukActivity;
 import com.example.mounticket.activities.LoginActivity;
-import com.example.mounticket.activities.SewaPorterGuideActivity;
-import com.example.mounticket.activities.SewaTravelOjekActivity;
+import com.example.mounticket.activities.InfoBasecampActivity;
+import com.example.mounticket.activities.InfoRentActivity;
+import com.example.mounticket.activities.OpenTripActivity;
+import com.example.mounticket.activities.TransactionHistoryActivity;
+import com.example.mounticket.activities.TravelOjekActivity;
+import com.example.mounticket.activities.PorterGuideActivity;
+import com.example.mounticket.activities.OpenTripActivity;
 import com.example.mounticket.adapter.MenuAdapter;
 import com.example.mounticket.adapter.NewsAdapter;
 import com.example.mounticket.models.MenuModel;
@@ -38,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements MenuAdapter.OnMen
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Halo! Selamat Datang");
 
         menuRecyclerView = findViewById(R.id.menuRecyclerView);
         newsRecyclerView = findViewById(R.id.newsRecyclerView);
@@ -54,10 +60,17 @@ public class MainActivity extends AppCompatActivity implements MenuAdapter.OnMen
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.action_logout) {
+        int id = item.getItemId();
+
+        if (id == R.id.action_transaction_history) {
+            Intent intent = new Intent(MainActivity.this, TransactionHistoryActivity.class);
+            startActivity(intent);
+            return true;
+        } else if (id == R.id.action_logout) {
             logout();
             return true;
         }
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -85,11 +98,14 @@ public class MainActivity extends AppCompatActivity implements MenuAdapter.OnMen
 
     private List<News> fetchNewsData() {
         List<News> newsList = new ArrayList<>();
-        newsList.add(new News(R.drawable.news_1, "Berita 1", "Deskripsi Berita 1"));
-        newsList.add(new News(R.drawable.news_2, "Berita 2", "Deskripsi Berita 2"));
-        newsList.add(new News(R.drawable.news_3, "Berita 3", "Deskripsi Berita 3"));
+        newsList.add(new News(R.drawable.news_1, "Pendakian Gunung Semeru Dibuka Kembali", "Setelah beberapa bulan ditutup karena kondisi cuaca ekstrem, pendakian Gunung Semeru kembali dibuka untuk umum mulai pekan depan. Para pendaki diharapkan tetap mematuhi protokol keamanan yang telah ditetapkan."));
+        newsList.add(new News(R.drawable.news_2, "Gunung Merapi Meningkatkan Status", "Aktivitas vulkanik Gunung Merapi meningkat, menyebabkan pihak berwenang meningkatkan status menjadi siaga. Warga di sekitar daerah tersebut diminta untuk waspada dan mempersiapkan diri terhadap kemungkinan erupsi."));
+        newsList.add(new News(R.drawable.news_3, "Keindahan Gunung Bromo di Pagi Hari", "Gunung Bromo kembali menjadi destinasi favorit para wisatawan. Pemandangan matahari terbit di Bromo menarik ribuan pengunjung setiap bulannya. Pastikan untuk mengunjungi saat kondisi cuaca baik untuk mendapatkan pengalaman terbaik."));
+        newsList.add(new News(R.drawable.news_4, "Gunung Rinjani Jadi Favorit Pendaki Internasional", "Gunung Rinjani di Lombok menjadi salah satu gunung favorit pendaki internasional. Dengan pemandangan yang menakjubkan dan trek yang menantang, Rinjani menawarkan pengalaman pendakian yang tak terlupakan."));
+        newsList.add(new News(R.drawable.news_5, "Festival Tahunan di Gunung Kerinci", "Festival tahunan di Gunung Kerinci akan diadakan bulan depan. Acara ini akan menampilkan berbagai kegiatan menarik seperti pendakian massal, lomba fotografi alam, dan pertunjukan budaya lokal."));
         return newsList;
     }
+
 
     @Override
     public void onMenuItemClicked(String menuItemName, String jsonUrl) {
@@ -98,7 +114,21 @@ public class MainActivity extends AppCompatActivity implements MenuAdapter.OnMen
             case "Tiket Masuk":
                 intent = new Intent(this, BeliTiketMasukActivity.class);
                 break;
-            // Tambahkan case untuk menu lain jika diperlukan
+            case "Basecamp":
+                intent = new Intent(this, InfoBasecampActivity.class);
+                break;  // Menambahkan break statement
+            case "Alat Pendakian":
+                intent = new Intent(this, InfoRentActivity.class);
+                break;  // Menambahkan break statement
+            case "Travel/Ojek":
+                intent = new Intent(this, TravelOjekActivity.class);
+                break;
+            case "Porter/Guide":
+                intent = new Intent(this, PorterGuideActivity.class);
+                break;
+            case "Open Trip":
+                intent = new Intent(this, OpenTripActivity.class);
+                break;
             default:
                 Toast.makeText(this, "Menu not implemented yet", Toast.LENGTH_SHORT).show();
                 return;

@@ -25,36 +25,27 @@ public class MountainListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mountain_list);
 
-        // Initialize Database Helper
         dbHelper = new DatabaseHelper(this);
 
-        // Retrieve Mountain Data from Database
         List<Mountain> mountains = dbHelper.getAllMountains();
 
-        // Set up RecyclerView
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
-        MountainAdapter adapter = new MountainAdapter(mountains, this); // Provide the context parameter
+        MountainAdapter adapter = new MountainAdapter(mountains, this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.toolbar_menu, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        // Logout Action
         if (id == R.id.action_logout) {
-            // Redirect to LoginActivity and clear previous activities
             Intent intent = new Intent(MountainListActivity.this, LoginActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);

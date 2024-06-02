@@ -5,20 +5,12 @@
     android:background="@color/white"
     android:gravity="center">
 
+    <!-- ImageView untuk menampilkan logo -->
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:src="@drawable/ic_launcher_foreground"
+        android:src="@drawable/logo"
         android:layout_centerInParent="true"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Welcome to Mounticket"
-        android:textSize="24sp"
-        android:textColor="@color/black"
-        android:layout_below="@id/imageView"
-        android:layout_marginTop="16dp"
-        android:layout_centerHorizontal="true"/>
 </RelativeLayout>

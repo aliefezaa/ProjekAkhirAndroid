@@ -3,6 +3,8 @@ package com.example.mounticket.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -40,6 +42,15 @@ public class BeliTiketMasukActivity extends AppCompatActivity {
         recyclerView.setAdapter(mountainAdapter);
 
         fetchMountainData();
+
+        // Tangani klik tombol kembali
+        ImageView backButton = findViewById(R.id.backButton);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed(); // Atau finish() untuk menutup activity
+            }
+        });
 
         mountainAdapter.setOnItemClickListener(new MountainAdapter.OnItemClickListener() {
             @Override

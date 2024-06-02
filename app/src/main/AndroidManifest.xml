@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
+    <!-- Permissions -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
 
     <application
         android:allowBackup="true"
@@ -46,11 +45,31 @@
             android:exported="true" />
         <activity
             android:name=".activities.AddEditMemberActivity"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".activities.BookingActivity"
-            android:exported="true"/>
-
+            android:exported="true" />
+        <activity
+            android:name=".activities.PaymentActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.TransactionHistoryActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.InfoBasecampActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.InfoRentActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.TravelOjekActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.PorterGuideActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.OpenTripActivity"
+            android:exported="true" />
     </application>
 
 </manifest>

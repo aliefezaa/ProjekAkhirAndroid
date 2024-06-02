@@ -1,0 +1,82 @@
+[
+    {
+      "id": 1,
+      "toko": "Penyewaan Melangkah Merapi",
+      "lokasi": "Jawa Tengah",
+      "disewakan": "Tas Carrier, Sleeping Bag, Tenda",
+      "imgalat": "https://cdn-2.tstatic.net/bogor/foto/bank/images/kayak_20160111_210238.jpg",
+      "kontak": "08321461175"
+    },
+    {
+      "id": 2,
+      "toko": "Penyewaan Rindu Rinjani",
+      "lokasi": "Lombok",
+      "disewakan": "Tracking Pole, Sepatu gunung, Peralatan Masak",
+      "imgalat": "https://2.bp.blogspot.com/-pkMoXOWAIno/UiaHWv_3npI/AAAAAAAABXI/v3gxUTsDBvg/w1200-h630-p-k-no-nu/1000736_519234931458909_582229711_n.jpg",
+      "kontak": "08520799580"
+    },
+    {
+      "id": 3,
+      "toko": "Penyewaan Subur Semeru",
+      "lokasi": "Jawa Timur",
+      "disewakan": "Sleeping Bag, Tenda, Sepatu Gunung",
+      "imgalat": "https://2.bp.blogspot.com/-2qKaEyLXfFk/XGOuvo6ct_I/AAAAAAAAC1w/dheoE7kl_HUtEy1-UVOC8FkCtE9-sBNSQCLcBGAs/s1600/Perlengkapan-Mendaki-Gunung-Bagi-Pemula-Beautyinthebackcountry.com_.jpg",
+      "kontak": "08709876941"
+    },
+    {
+      "id": 4,
+      "toko": "Penyewaan Kaki Kerinci",
+      "lokasi": "Jambi",
+      "disewakan": "Tenda, Tas Carrier, Peralatan Gunung ",
+      "imgalat": "https://1.bp.blogspot.com/-9LRtvcyWl3o/WVvb4dC0WTI/AAAAAAAAAyM/zuxlRfs7SQ4Oi4k49Gr2bC3SNbO31_meACLcBGAs/s1600/Bisnis%2BToko%2BPeralatan%2BOutdoor.jpg",
+      "kontak": "08412097854"
+    },
+    {
+      "id": 5,
+      "toko": "Penyewaan Gemuruh Gede",
+      "lokasi": "Jawa Barat",
+      "disewakan": "Peralatan Masak, Tas Carrier, Sepatu",
+      "imgalat": "https://4.bp.blogspot.com/-ALgcMDpKoEc/WF1b0CTJUjI/AAAAAAAAARI/z0XDUghiwAg7FusD_oK3gqh8kWgCKKgBwCLcB/s1600/peralatan-masak-di-gunung.jpg",
+      "kontak": "08559402505"
+    },
+    {
+      "id": 6,
+      "toko": "Penyewaan Bahagia Bromo",
+      "lokasi": "Jawa Timur",
+      "disewakan": "Tenda, Sepatu Gunung, Peralatan Gunung ",
+      "imgalat": "https://1.bp.blogspot.com/--37mZbnR4AM/WA2wCeK4bnI/AAAAAAAAEyE/J1OEPEMzjIUtTlpKPI53PzKYio2RbWX4QCLcB/s1600/toko%2Bperlengkapan%2Bmendaki%2Bgunung.jpg",
+      "kontak": "08899463653"
+    },
+    {
+      "id": 7,
+      "toko": "Penyewaan Sahaja Slamet",
+      "lokasi": "Jawa Tengah",
+      "disewakan": "Sepatu Gunung, Tenda, Tracking Pole",
+      "imgalat": "https://4.bp.blogspot.com/-1xfRCN_q5iY/VU1-6_k5m9I/AAAAAAAAAbQ/9fHFfL6J5lg/s1600/IMG_1687.JPG",
+      "kontak": "0852512574"
+    },
+    {
+      "id": 8,
+      "toko": "Penyewaan Lembayung Lawu",
+      "lokasi": "Jawa Tengah",
+      "disewakan": "Tas Carrier, Peralatan Masak, Tenda",
+      "imgalat": "https://cdn-2.tstatic.net/jabar/foto/bank/images/alat-mendaki-gunung-disewakan-di-alment_20170922_210640.jpg",
+      "kontak": "08613509591"
+    },
+    {
+      "id": 9,
+      "toko": "Penyewaan Abadi Agung",
+      "lokasi": "Bali",
+      "disewakan": "Tenda, Tas Carrier, Peralatan Gunung ",
+      "imgalat": "https://anakgunung.com/wp-content/uploads/2017/05/peralatan-pendakian.jpg",
+      "kontak": "08825907619"
+    },
+    {
+      "id": 10,
+      "toko": "Penyewaan Mendayu Merbabu",
+      "lokasi": "Jawa Tengah",
+      "disewakan": "Sepatu Gunung, Tenda, Tas Carrier",
+      "imgalat": "https://gunungmerbabu.com/wp-content/uploads/2020/01/Peralatan-naik-gunung.jpg",
+      "kontak": "08269037371"
+    }
+  ]

@@ -17,23 +17,42 @@ public class MountainAdapter extends RecyclerView.Adapter<MountainAdapter.Mounta
 
     private List<Mountain> mountainList;
     private Context context;
+    private OnItemClickListener mListener;
 
-    public MountainAdapter(List<Mountain> mountainList) {
+    public MountainAdapter(List<Mountain> mountainList, Context context) {
         this.mountainList = mountainList;
+        this.context = context;
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(int position);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        mListener = listener;
     }
 
     @NonNull
     @Override
     public MountainViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        context = parent.getContext();
         View view = LayoutInflater.from(context).inflate(R.layout.item_mountain, parent, false);
         return new MountainViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull MountainViewHolder holder, int position) {
-        Mountain mountain = mountainList.get(position);
-        holder.bind(mountain);
+        Mountain currentMountain = mountainList.get(position);
+        holder.bind(currentMountain);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int clickedPosition = holder.getAdapterPosition();
+                if (clickedPosition != RecyclerView.NO_POSITION && mListener != null) {
+                    mListener.onItemClick(clickedPosition);
+                }
+            }
+        });
     }
 
     @Override

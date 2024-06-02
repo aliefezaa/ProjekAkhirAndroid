@@ -1,5 +1,6 @@
 package com.example.mounticket.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import androidx.appcompat.app.AppCompatActivity;
@@ -35,11 +36,21 @@ public class BeliTiketMasukActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         mountainList = new ArrayList<>();
-        mountainAdapter = new MountainAdapter(mountainList);
+        mountainAdapter = new MountainAdapter(mountainList, this);
         recyclerView.setAdapter(mountainAdapter);
 
-        // Fetch data from JSON and update the list
         fetchMountainData();
+
+        mountainAdapter.setOnItemClickListener(new MountainAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                Mountain selectedMountain = mountainList.get(position);
+
+                Intent intent = new Intent(BeliTiketMasukActivity.this, FormActivity.class);
+                intent.putExtra("selectedMountain", selectedMountain);
+                startActivity(intent);
+            }
+        });
     }
 
     private void fetchMountainData() {
@@ -67,6 +78,7 @@ public class BeliTiketMasukActivity extends AppCompatActivity {
                     mountainAdapter.notifyDataSetChanged();
                 } catch (JSONException e) {
                     e.printStackTrace();
+                    Log.e("JSON", "Error parsing JSON: " + e.getMessage());
                 }
             }
         }, new Response.ErrorListener() {

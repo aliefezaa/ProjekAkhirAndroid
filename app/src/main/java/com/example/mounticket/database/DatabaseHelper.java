@@ -87,17 +87,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     // Mountain table methods
-    public void insertMountain(Mountain mountain) {
+    public long addMountain(Mountain mountain) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(COLUMN_MOUNTAIN_ID, mountain.getId());
         values.put(COLUMN_NAME, mountain.getName());
         values.put(COLUMN_ALAMAT, mountain.getAlamat());
         values.put(COLUMN_HEIGHT, mountain.getHeight());
         values.put(COLUMN_IMAGE, mountain.getImage());
         values.put(COLUMN_HARGA, mountain.getHarga());
-        db.insert(TABLE_MOUNTAINS, null, values);
-        db.close();
+        return db.insert(TABLE_MOUNTAINS, null, values);
     }
 
     public List<Mountain> getAllMountains() {
@@ -106,15 +104,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_MOUNTAINS, null);
         if (cursor.moveToFirst()) {
             do {
-                int id = cursor.getInt(0);
-                String name = cursor.getString(1);
-                String alamat = cursor.getString(2);
-                String height = cursor.getString(3);
-                String image = cursor.getString(4);
-                String harga = cursor.getString(5);
+                int idIndex = cursor.getColumnIndex(COLUMN_MOUNTAIN_ID);
+                int nameIndex = cursor.getColumnIndex(COLUMN_NAME);
+                int alamatIndex = cursor.getColumnIndex(COLUMN_ALAMAT);
+                int heightIndex = cursor.getColumnIndex(COLUMN_HEIGHT);
+                int imageIndex = cursor.getColumnIndex(COLUMN_IMAGE);
+                int hargaIndex = cursor.getColumnIndex(COLUMN_HARGA);
 
-                Mountain mountain = new Mountain(id, name, alamat, height, image, harga);
-                mountainList.add(mountain);
+                // Pastikan indeks kolom valid
+                if (idIndex >= 0 && nameIndex >= 0 && alamatIndex >= 0 && heightIndex >= 0 && imageIndex >= 0 && hargaIndex >= 0) {
+                    int id = cursor.getInt(idIndex);
+                    String name = cursor.getString(nameIndex);
+                    String alamat = cursor.getString(alamatIndex);
+                    String height = cursor.getString(heightIndex);
+                    String image = cursor.getString(imageIndex);
+                    String harga = cursor.getString(hargaIndex);
+
+                    Mountain mountain = new Mountain(id, name, alamat, height, image, harga);
+                    mountainList.add(mountain);
+                }
             } while (cursor.moveToNext());
         }
         cursor.close();

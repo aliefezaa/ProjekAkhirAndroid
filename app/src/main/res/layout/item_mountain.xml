@@ -51,5 +51,13 @@
             android:layout_marginTop="4dp"
             android:text="Mountain Price"
             android:textAppearance="?attr/textAppearanceCaption" />
+
+        <Button
+            android:id="@+id/buyTicketButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Beli Tiket Sekarang" />
+
     </LinearLayout>
 </androidx.cardview.widget.CardView>

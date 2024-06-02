@@ -33,7 +33,7 @@ public class MountainListActivity extends AppCompatActivity {
 
         // Set up RecyclerView
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
-        MountainAdapter adapter = new MountainAdapter(mountains);
+        MountainAdapter adapter = new MountainAdapter(mountains, this); // Provide the context parameter
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }

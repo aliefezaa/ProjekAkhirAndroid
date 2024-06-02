@@ -1,0 +1,62 @@
+[
+    {
+      "id": 1,
+      "mt": "Basecamp Gunung Merapi",
+      "commodity": "1 Kamar mandi, 3 Kamar Tidur",
+      "distance": "7 x 5 meter"
+    },
+    {
+        "id": 2,
+        "mt": "Basecamp Gunung Rinjani",
+        "commodity": "1 Kamar mandi, 2 Kamar Tidur",
+        "distance": "6 x 4 meter"
+    },
+    {
+        "id": 3,
+        "mt": "Basecamp Gunung Semeru",
+        "commodity": "1 Kamar mandi, 1 Kamar Tidur",
+        "distance": "5 x 4 meter"
+    },
+    {
+        "id": 4,
+        "mt": "Basecamp Gunung Kerinci",
+        "commodity": "1 Kamar mandi, 1 Kamar Tidur",
+        "distance": "5 x 3,5 meter"
+    },
+    {
+        "id": 5,
+        "mt": "Basecamp Gunung Gede",
+        "commodity": "2 Kamar mandi, 4 Kamar Tidur",
+        "distance": "8 x 8 meter"
+    },
+    {
+        "id": 6,
+        "mt": "Basecamp Gunung Bromo",
+        "commodity": "2 Kamar mandi, 3 Kamar Tidur",
+        "distance": "7 x 6 meter"
+    },
+    {
+        "id": 7,
+        "mt": "Basecamp Gunung Slamet",
+        "commodity": "1 Kamar mandi, 2 Kamar Tidur",
+        "distance": "6 x 4 meter"
+    },
+    {
+        "id": 8,
+        "mt": "Basecamp Gunung Lawu",
+        "commodity": "2 Kamar mandi, 3 Kamar Tidur",
+        "distance": "7 x 7 meter"
+    },
+    {
+        "id": 9,
+        "mt": "Basecamp Gunung Agung",
+        "commodity": "1 Kamar mandi, 3 Kamar Tidur",
+        "distance": "7 x 4 meter"
+    },
+    {
+        "id": 10,
+        "mt": "Basecamp Gunung Merbabu",
+        "commodity": "2 Kamar mandi, 4 Kamar Tidur",
+        "distance": "6 x 6 meter"
+    }
+  ]
